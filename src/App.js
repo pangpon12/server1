@@ -14,14 +14,14 @@ function App() {
 
 
   const getEmployees = () => {
-    Axios.get('http://localhost:3002/employees').then((response) => {
+    Axios.get('http://194.59.165.141:3002/employees').then((response) => {
       console.log(response)
       setemployeeList(response.data);
     });
   }
 
   const deleteEmployees = (colum1) => {
-    Axios.delete(`http://localhost:3002/delete/${colum1}`).then((response) => {
+    Axios.delete(`http://194.59.165.141:3002/delete/${colum1}`).then((response) => {
       setemployeeList(
         employeeList.filter((val) => {
           return val.colum1 !== colum1;
@@ -30,7 +30,7 @@ function App() {
     });
   };
   const createPost = () => {
-    Axios.post("http://localhost:3002/create", {
+    Axios.post("http://194.59.165.141:3002/create", {
       colum2: colum2, colum3: colum3, colum1: colum1, colum4: colum4,
     }).then(() => {
       setemployeeList([
@@ -44,7 +44,7 @@ function App() {
 
 
   const update = (colum1) => {
-    Axios.put("http://localhost:3002/UPDATE", { colum1: colum1, colum2: newcolum2 }).then(
+    Axios.put("http://194.59.165.141:3002/UPDATE", { colum1: colum1, colum2: newcolum2 }).then(
       (response) => {
         setemployeeList(
           employeeList.map((val) => {
